@@ -20,7 +20,7 @@ my %module_build_args = (
     'Jeffrey Ryan Thalhammer <jeff@imaginative-software.com>'
   ],
   'dist_name' => 'Dist-Zilla-Plugin-ReleaseToPinto',
-  'dist_version' => '0.002',
+  'dist_version' => '0.003',
   'license' => 'perl',
   'module_name' => 'Dist::Zilla::Plugin::ReleaseToPinto',
   'recommends' => {},

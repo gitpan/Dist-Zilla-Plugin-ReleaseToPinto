@@ -13,7 +13,7 @@ use Class::Load qw(load_class);
 
 #------------------------------------------------------------------------------
 
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 #------------------------------------------------------------------------------
 
@@ -62,12 +62,14 @@ sub release {
     my $pinto_class = $self->load_pinto();
     my $pinto       = $pinto_class->new( repos => $self->repos() );
 
+    $self->log("Releasing $archive to $repos");
+
     $pinto->new_action_batch();
     $pinto->add_action('Add', author => $self->author(), dist_file => $archive);
     my $result = $pinto->run_actions();
 
     if ($result->is_success()) {
-        $self->log("Added $archive to $repos");
+        $self->log("Added $archive ok");
         return 1;
     }
     else {
@@ -135,7 +137,7 @@ Dist::Zilla::Plugin::ReleaseToPinto - Release your dist to a Pinto repository
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
